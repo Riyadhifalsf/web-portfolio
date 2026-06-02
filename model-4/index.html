@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>calvinitofjrzk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#000;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:999;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:linear-gradient(to bottom, rgba(0,0,0,.8), transparent);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .hamburger{
+      width:26px;
+      height:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+
+    .hamburger span{
+      width:100%;
+      height:2px;
+      background:white;
+      border-radius:20px;
+      transition:.3s;
+    }
+
+    .menu{
+      position:fixed;
+      top:0;
+      right:-100%;
+      width:75%;
+      height:100vh;
+      background:#050505;
+      z-index:1000;
+      padding:100px 30px;
+      transition:.4s ease;
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+    }
+
+    .menu.active{
+      right:0;
+    }
+
+    .menu a{
+      font-size:18px;
+      font-weight:500;
+      opacity:.9;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      height:100vh;
+      overflow:hidden;
+    }
+
+    .hero img{
+      height:100%;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,.8),
+        rgba(0,0,0,.1)
+      );
+      display:flex;
+      align-items:flex-end;
+      padding:40px 24px;
+    }
+
+    .hero-content h1{
+      font-size:38px;
+      line-height:1;
+      margin-bottom:12px;
+      font-weight:700;
+    }
+
+    .hero-content p{
+      font-size:14px;
+      opacity:.8;
+      line-height:1.6;
+      max-width:320px;
+    }
+
+    /* GRID */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+    }
+
+    .gallery img{
+      height:100%;
+      transition:.5s;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.04);
+    }
+
+    .wide{
+      grid-column:span 2;
+    }
+
+    .tall img{
+      height:100%;
+      min-height:340px;
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      padding:70px 20px 20px;
+    }
+
+    .section-title h2{
+      font-size:26px;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      opacity:.7;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 20px 80px;
+      text-align:center;
+      background:#050505;
+    }
+
+    footer h3{
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    footer p{
+      opacity:.6;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    /* MOBILE */
+
+    @media(min-width:768px){
+
+      .hero-content h1{
+        font-size:70px;
+      }
+
+      .hero-content p{
+        font-size:16px;
+        max-width:500px;
+      }
+
+      .gallery{
+        grid-template-columns:repeat(3,1fr);
+      }
+
+      .wide{
+        grid-column:span 2;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+    <div class="logo">calvinitofjrzk</div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- MENU -->
+
+  <div class="menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop" alt="">
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Visual Stories.</h1>
+        <p>
+          A minimalist photography portfolio focused on emotion,
+          atmosphere, street moments, and cinematic composition.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TITLE -->
+
+  <div class="section-title">
+    <h2>Selected Works</h2>
+    <p>
+      Every frame is connected seamlessly without gaps,
+      creating one continuous visual flow from top to bottom.
+    </p>
+  </div>
+
+  <!-- GALLERY -->
+
+  <section class="gallery">
+
+    <div class="gallery-item tall">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item wide">
+      <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item tall">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item wide">
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <h3>calvinitofjrzk</h3>
+    <p>
+      Minimal. Elegant. Seamless.  
+      Crafted for modern mobile experience.
+    </p>
+  </footer>
+
+  <script>
+
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+  </script>
+
+</body>
+</html>

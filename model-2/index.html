@@ -1,0 +1,593 @@
+# Mobile First Cinematic Portfolio — Ready To Use
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calvinitofjrzk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* INTRO */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: black;
+      overflow: hidden;
+      transition: 1s ease;
+    }
+
+    #intro video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .intro-content {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 25px;
+    }
+
+    .intro-content h1 {
+      font-size: 2.2rem;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+
+    .intro-content p {
+      color: #d1d1d1;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+    }
+
+
+    /* MAIN */
+
+    #main {
+      opacity: 0;
+      transition: 1s;
+    }
+
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 20px;
+
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .menu-btn {
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+
+      width: 75%;
+      height: 100vh;
+
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(20px);
+
+      display: flex;
+      flex-direction: column;
+      padding: 120px 35px;
+      gap: 28px;
+
+      transition: 0.4s ease;
+      z-index: 999;
+    }
+
+    nav.active {
+      right: 0;
+    }
+
+    nav a {
+      font-size: 1.1rem;
+      color: #e5e5e5;
+    }
+
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 120px 24px 60px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero span {
+      color: #8a8a8a;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: #b5b5b5;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 35px;
+    }
+
+    .hero-btn {
+      width: fit-content;
+      padding: 15px 24px;
+
+      border-radius: 100px;
+
+      background: white;
+      color: black;
+      font-weight: 600;
+    }
+
+
+    /* SECTION */
+
+    section {
+      padding: 80px 22px;
+    }
+
+    .section-header {
+      margin-bottom: 35px;
+    }
+
+    .section-header span {
+      color: #777;
+      letter-spacing: 3px;
+      font-size: 0.72rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      margin-top: 12px;
+    }
+
+
+    /* ABOUT */
+
+    .about-text {
+      color: #bdbdbd;
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      gap: 22px;
+    }
+
+    .card {
+      background: #0f0f0f;
+      border-radius: 24px;
+      overflow: hidden;
+
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .card-content small {
+      color: #7c7c7c;
+      letter-spacing: 2px;
+    }
+
+    .card-content h3 {
+      margin-top: 10px;
+      font-size: 1.5rem;
+    }
+
+    .card-content p {
+      margin-top: 14px;
+      line-height: 1.8;
+      color: #b8b8b8;
+    }
+
+
+    /* QUOTE */
+
+    .quote {
+      text-align: center;
+      padding: 100px 24px;
+    }
+
+    .quote h2 {
+      font-size: 2rem;
+      line-height: 1.5;
+      color: #f3f3f3;
+    }
+
+
+    /* CONTACT */
+
+    .contact-box {
+      background: #101010;
+      border-radius: 24px;
+      padding: 30px;
+    }
+
+    .contact-box p {
+      margin-top: 14px;
+      color: #c2c2c2;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      padding: 40px 20px 80px;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+
+    /* DESKTOP */
+
+    @media(min-width:768px) {
+
+      .hero {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero h1 {
+        max-width: 900px;
+        font-size: 5rem;
+      }
+
+      .hero p {
+        max-width: 700px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      nav {
+        width: 320px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <!-- INTRO -->
+
+  <div id="intro">
+
+    <video autoplay muted playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-clouds-above-the-city-1564846614258?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="intro-content">
+      <h1>calvinitofjrzk</h1>
+      <p>CINEMATIC PORTFOLIO EXPERIENCE</p>
+    </div>
+
+  </div>
+
+
+  <!-- MAIN -->
+
+  <main id="main">
+
+
+    <!-- HEADER -->
+
+    <header>
+
+      <div class="logo">
+        calvinitofjrzk
+      </div>
+
+      <div class="menu-btn" id="menu-btn">
+        ☰
+      </div>
+
+    </header>
+
+
+    <!-- NAV -->
+
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+      <span>VISUAL STORYTELLING</span>
+
+      <h1>
+        Capturing Emotion Through Modern Photography
+      </h1>
+
+      <p>
+        Minimalist cinematic portfolio designed for elegant visual storytelling, emotional atmosphere, and premium photography presentation.
+      </p>
+
+      <a href="#works" class="hero-btn">
+        Explore Portfolio
+      </a>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="section-header">
+        <span>ABOUT</span>
+        <h2>The Creative Vision</h2>
+      </div>
+
+      <p class="about-text">
+        Focused on cinematic composition, emotional storytelling, and luxury minimalist visuals. Every frame is designed to capture atmosphere, emotion, and timeless moments with modern aesthetics.
+      </p>
+
+    </section>
+
+
+    <!-- WORKS -->
+
+    <section id="works">
+
+      <div class="section-header">
+        <span>FEATURED WORKS</span>
+        <h2>Selected Portfolio</h2>
+      </div>
+
+
+      <div class="gallery">
+
+
+        <div class="card">
+
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="card-content">
+            <small>STREET PHOTOGRAPHY</small>
+            <h3>Urban Silence</h3>
+
+            <p>
+              Capturing quiet moments hidden inside modern city life with cinematic perspective.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="card-content">
+            <small>CINEMATIC VISUAL</small>
+            <h3>Golden Light</h3>
+
+            <p>
+              Warm sunset atmosphere blended with elegant natural composition.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="card-content">
+            <small>PORTRAIT STORY</small>
+            <h3>Human Expression</h3>
+
+            <p>
+              Emotional portrait photography focused on expression and atmosphere.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="card-content">
+            <small>NIGHT SHOOT</small>
+            <h3>Night Motion</h3>
+
+            <p>
+              Blending movement, light, and cinematic city atmosphere into visual storytelling.
+            </p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+      <h2>
+        “Photography is the art of making emotion stay forever.”
+      </h2>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="section-header">
+        <span>CONTACT</span>
+        <h2>Let's Work Together</h2>
+      </div>
+
+      <div class="contact-box">
+        <p>Instagram — @calvinitofjrzk</p>
+        <p>Email — hello@visualstudio.com</p>
+        <p>Based in Indonesia</p>
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+      © 2026 calvinitofjrzk — Cinematic Portfolio Experience
+    </footer>
+
+
+  </main>
+
+
+  <script>
+
+    // INTRO
+
+    setTimeout(() => {
+
+      document.getElementById('intro').style.opacity = '0';
+
+      setTimeout(() => {
+
+        document.getElementById('intro').style.display = 'none';
+
+        document.getElementById('main').style.opacity = '1';
+
+      }, 1000);
+
+    }, 4500);
+
+
+    // MENU
+
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.getElementById('nav');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+
+    // CLOSE MENU WHEN CLICK
+
+    document.querySelectorAll('nav a').forEach(link => {
+
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
